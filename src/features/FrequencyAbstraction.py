@@ -54,10 +54,15 @@ class FourierTransformation:
                         i, col + "_freq_" + str(freqs[j]) + "_Hz_ws_" + str(window_size)
                     ] = real_ampl[j]
                 # And select the dominant frequency. We only consider the positive frequencies for now.
-
+                print('real ampl:',real_ampl)
+                print('freqs:',freqs)
+                print('real amlp range', real_ampl[0 : len(real_ampl)])
+                print('arg max:', np.argmax(real_ampl[0 : len(real_ampl)]))
                 data_table.loc[i, col + "_max_freq"] = freqs[
-                    np.argmax(real_ampl[0 : len(real_ampl)])
+                    np.argmax(real_ampl[1 : len(real_ampl)])
                 ]
+                print('real ampl:',len(real_ampl))
+                print('freqs:',len(freqs))
                 data_table.loc[i, col + "_freq_weighted"] = float(
                     np.sum(freqs * real_ampl)
                 ) / np.sum(real_ampl)

@@ -163,3 +163,12 @@ df_freq = df_temporal.copy().reset_index()
 # --------------------------------------------------------------
 # Export dataset
 # --------------------------------------------------------------
+import os
+
+# Print the current working directory
+print("Current Directory:", os.getcwd())
+
+# List all files and folders in the current directory
+print("\nContents:")
+for item in os.listdir():
+    print(item)
